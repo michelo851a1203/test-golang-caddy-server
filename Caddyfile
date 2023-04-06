@@ -1,0 +1,7 @@
+{
+  http_port 80
+}
+
+:80 {
+  reverse_proxy testc-app:8080
+}

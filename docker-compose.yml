@@ -1,0 +1,20 @@
+version: "3.9"
+networks:
+  backend:
+
+services:
+  testc-app:
+    build: .
+    networks:
+      - backend
+
+  caddy:
+    image: caddy:alpine
+    ports: 
+      - 80:80
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+    depends_on:
+      - app
+    networks:
+      - backend
